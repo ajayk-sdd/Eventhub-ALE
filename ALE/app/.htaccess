@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule    ^$    webroot/    [L]
+    RewriteRule    (.*) webroot/$1    [L]
+</IfModule>
+
+#AuthName "Restricted Area"
+#AuthType Basic
+#AuthUserFile /var/www/html/alistemail/.htpasswd
+#AuthGroupFile /dev/null
+#require valid-user
+
+#Options +FollowSymlinks
+#rewritecond %{http_host} ^alistemail.com [nc]
+#rewriterule ^(.*)$ http://www.alistemail.com/$1 [r=301,nc] 
